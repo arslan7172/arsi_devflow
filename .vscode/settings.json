@@ -12,6 +12,7 @@
   "prettier.jsxSingleQuote": false,
   "prettier.trailingComma": "es5",
   "prettier.arrowParens": "always",
+  
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
