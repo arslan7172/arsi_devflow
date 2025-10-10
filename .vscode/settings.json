@@ -12,7 +12,7 @@
   "prettier.jsxSingleQuote": false,
   "prettier.trailingComma": "es5",
   "prettier.arrowParens": "always",
-  
+
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -25,5 +25,11 @@
   "[javascriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "files.exclude": {
+    "**/node_modules": true,
+    "**/.next": true,
+    "**/.vscode": true,
+    "**/next-env.d.ts": true
+  }
 }
