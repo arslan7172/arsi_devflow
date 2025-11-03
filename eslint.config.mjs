@@ -56,4 +56,14 @@ export default defineConfig([{
             },
         }],
     },
-}]);
+    
+},
+ {
+    files: ["**/*.ts", "**/*.tsx"],
+
+    rules: {
+      "no-undef": "off",
+    },
+  },
+
+]);
