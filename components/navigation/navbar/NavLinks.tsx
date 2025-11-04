@@ -5,18 +5,21 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import { SheetClose } from "../ui/sheet";
+import { SheetClose } from "../../ui/sheet";
 
 const NavLinks = ({ isMobileNav = false }: { isMobileNav: boolean }) => {
-    const userId = 1; // Replace with actual user ID retrieval logic
-    const pathname = usePathname();
-  return <>
-    {sidebarLinks.map((item) => {
-        const isActive = (pathname.includes(item.route) && item.route.length > 1) || pathname === item.route;
-        if(item.route === '/profile'){
-            if (userId) {
-                item.route = `/profile/${userId}`;
-            }
+  const userId = 1; // Replace with actual user ID retrieval logic
+  const pathname = usePathname();
+  return (
+    <>
+      {sidebarLinks.map((item) => {
+        const isActive =
+          (pathname.includes(item.route) && item.route.length > 1) ||
+          pathname === item.route;
+        if (item.route === "/profile") {
+          if (userId) {
+            item.route = `/profile/${userId}`;
+          }
         }
         const LinkComponent = (
           <Link
@@ -24,9 +27,9 @@ const NavLinks = ({ isMobileNav = false }: { isMobileNav: boolean }) => {
             key={item.label}
             className={cn(
               isActive
-                ? "primary-gradient rounded-lg text-light-900"
+                ? "primary-gradient text-light-900 rounded-lg"
                 : "text-dark300_light900",
-              "flex items-center justify-start gap-4 bg-transparent p-4"
+              "flex items-center justify-start gap-4 bg-transparent p-4",
             )}
           >
             <Image
@@ -39,7 +42,7 @@ const NavLinks = ({ isMobileNav = false }: { isMobileNav: boolean }) => {
             <p
               className={cn(
                 isActive ? "base-bold" : "base-medium",
-                !isMobileNav && "max-lg:hidden"
+                !isMobileNav && "max-lg:hidden",
               )}
             >
               {item.label}
@@ -47,12 +50,15 @@ const NavLinks = ({ isMobileNav = false }: { isMobileNav: boolean }) => {
           </Link>
         );
         return isMobileNav ? (
-          <SheetClose asChild key={item.label}>{LinkComponent}</SheetClose>
+          <SheetClose asChild key={item.label}>
+            {LinkComponent}
+          </SheetClose>
         ) : (
           <React.Fragment key={item.label}>{LinkComponent}</React.Fragment>
         );
-    })}
-  </>;
+      })}
+    </>
+  );
 };
 
 export default NavLinks;

@@ -2,10 +2,9 @@ import type { Metadata } from "next";
 import "@/app/globals.css";
 import localFont from "next/font/local";
 import ThemeProvider from "@/context/Theme";
-import { Toaster } from "@/components/ui/sonner"
+import { Toaster } from "@/components/ui/sonner";
 import { SessionProvider } from "next-auth/react";
 import { auth } from "@/auth";
-
 
 const interVF = localFont({
   src: "./fonts/InterVF.ttf",
@@ -36,21 +35,28 @@ export default async function RootLayout({
   const session = await auth();
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+        />
+      </head>
       <SessionProvider session={session}>
         <body
           className={`${interVF.variable} ${spaceGrotesk.variable} antialiased`}
         >
           <ThemeProvider
             attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
-        <Toaster />
-      </body>
-      </SessionProvider> 
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+          </ThemeProvider>
+          <Toaster />
+        </body>
+      </SessionProvider>
     </html>
   );
 }

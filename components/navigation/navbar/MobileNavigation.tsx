@@ -7,7 +7,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Button } from "../ui/button";
+import { Button } from "../../ui/button";
 import Image from "next/image";
 import Link from "next/link";
 import ROUTES from "@/constants/routes";
@@ -44,7 +44,7 @@ export function SheetDemo() {
         <div className="no-scrollbar flex h-[calc(100vh-80px)] flex-col justify-between overflow-y-auto">
           <SheetClose asChild>
             <section className="flex h-full flex-col gap-6 pt-16">
-              <NavLinks isMobileNav/>
+              <NavLinks isMobileNav />
             </section>
           </SheetClose>
           <div className="flex flex-col gap-3">
