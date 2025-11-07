@@ -7,11 +7,6 @@ import { formUrlQuery, removeKeysFromUrlQuery } from "@/lib/url";
 
 
 const filters = [
-  { name: "All", value: "" },
-  { name: "Newest", value: "newest" },
-  { name: "Popular", value: "popular" },
-  { name: "Unanswered", value: "unanswered" },
-  { name: "Recommeded", value: "recommended" },
   { name: "React", value: "react" },
   { name: "JavaScript", value: "javascript" },
   { name: "TypeScript", value: "typescript" },

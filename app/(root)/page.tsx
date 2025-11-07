@@ -3,6 +3,7 @@ import Link from "next/link";
 import ROUTES from "@/constants/routes";
 import LocalSearch from "@/components/search/LocalSearch";
 import HomeFilter from "@/components/filters/HomeFilter";
+import QuestionCard from "@/components/cards/QuestionCard";
 
 
 
@@ -24,6 +25,7 @@ import HomeFilter from "@/components/filters/HomeFilter";
       author: {
         _id: "u1",
         name: "John Doe",
+          image: "https://img.freepik.com/premium-photo/happy-man-ai-generated-portrait-user-profile_1119669-1.jpg?w=2000"
       },
       upvotes: 10,
       answers: 2,
@@ -47,6 +49,7 @@ import HomeFilter from "@/components/filters/HomeFilter";
       author: {
         _id: "u2",
         name: "Jane Smith",
+        image: "https://img.freepik.com/premium-photo/happy-man-ai-generated-portrait-user-profile_1119669-1.jpg?w=2000"
       },
       upvotes: 5,
       answers: 1,
@@ -72,6 +75,7 @@ import HomeFilter from "@/components/filters/HomeFilter";
       author: {
         _id: "u3",
         name: "Alice Johnson",
+        image: "https://img.freepik.com/premium-photo/happy-man-ai-generated-portrait-user-profile_1119669-1.jpg?w=2000"
       },
       upvotes: 8,
       answers: 3,
@@ -112,7 +116,7 @@ const Home = async ({searchParams}:SearchParams) => {
       <HomeFilter />
       <div className="mt-10 flex w-full flex-col gap-6">
         {filteredQuestions.map((question) => (
-          <h1 key={question._id}>{question.title}</h1>
+          <QuestionCard key={question._id} question={question} />
         ))}
       </div>
     </>
